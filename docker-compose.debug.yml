@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  service-node:
+    image: service-node
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/src
+    labels:
+      com.service-node.environment: "debug"
