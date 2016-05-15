@@ -5,11 +5,6 @@ var app = angular.module('myApp', ['ngRoute']);
     $scope.sayHelloToServer = function() {
         $http.get("/api").then(function(response) {
             $scope.messages.push(response.data);
-
-            // Make request to /metrics            
-            // $http.get("/metrics").then(function(response) {
-            //     $scope.metrics = response.data;
-            // });
         });
     };
     
@@ -26,5 +21,4 @@ var app = angular.module('myApp', ['ngRoute']);
         }
         return styles[message];
     }
-
 });

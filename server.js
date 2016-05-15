@@ -8,32 +8,12 @@ var app = express();
 app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
 app.use(require("morgan")("dev"));
 
-// api ------------------------------------------------------------
-app.get('/api', function (req, res) {
-    res.send('Hello from service A running on ' + os.hostname());
-
-    // Connect to redis container using environment variables
-    // var redis = require('redis').createClient(process.env.MYREDIS_PORT, process.env.MYREDIS_DOMAIN);
-    
-    // Increment requestCount each time API is called
-    // redis.incr('requestCount', function (err, reply) {
-    //     var requestCount = reply;
-    // });
-    
-    // Invoke service-b
-    // request(process.env.SERVICE_B_MASTER_URL, function (error, response, body) {
-    //     res.send('Hello from service A running on ' + os.hostname() + ' and ' + body);
-    // });
-    
+// api ---------------------------------------------------------------------
+app.get('/api', function (req, res) {        
+    request('http://localhost:5000/api/hello', function (error, response, body) {
+        res.send('Hello from service-dotnet: ' + body);
+    });    
 });
-
-// app.get('/metrics', function (req, res) {
-//     var redis = require('redis').createClient(process.env.MYREDIS_PORT, process.env.MYREDIS_DOMAIN);
-//     redis.get('requestCount', function (err, reply) {
-//         res.send({ requestCount: reply });
-//     });
-// });
-
 
 // application -------------------------------------------------------------
 app.get('/', function (req, res) {
