@@ -10,7 +10,7 @@ app.use(require("morgan")("dev"));
 
 // api ---------------------------------------------------------------------
 app.get('/api', function (req, res) {        
-    request('http://localhost:5000/api/hello', function (error, response, body) {
+    request('http://dazhao-swarmagents.westus.cloudapp.azure.com/api/hello', function (error, response, body) {
         res.send('Hello from service-dotnet: ' + body);
     });    
 });
