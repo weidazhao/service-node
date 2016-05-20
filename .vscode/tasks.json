@@ -1,0 +1,20 @@
+{
+    "version": "0.1.0",
+    "command": "${workspaceRoot}/dockerTask.sh",
+    "isShellCommand": true,
+    "showOutput": "always",
+    "args": [],
+    "tasks": [
+        {
+            "taskName": "build",
+            "args": ["debug"],
+            "isBuildCommand": true,
+            "showOutput": "always"
+        },
+        {
+            "taskName": "compose",
+            "args": ["debug"],
+            "showOutput": "always"
+        }
+    ]
+}

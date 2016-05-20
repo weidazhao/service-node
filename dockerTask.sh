@@ -58,7 +58,7 @@ openSite () {
     done
 
     # Open the site.
-    start "http://$(docker-machine ip $(docker-machine active)):$publicPort"
+    open "http://$(docker-machine ip $(docker-machine active)):$publicPort"
 }
 
 # Shows the usage for the script.
@@ -81,6 +81,8 @@ showUsage () {
     echo "    This will:"
     echo "        Build a Docker image named $imageName using debug environment."
 }
+
+eval $(docker-machine env default)
 
 if [ $# -eq 0 ]; then
   showUsage
