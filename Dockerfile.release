@@ -1,7 +1,0 @@
-FROM node
-RUN mkdir /src
-COPY . /src
-WORKDIR /src
-EXPOSE 4000
-RUN npm install
-ENTRYPOINT node ./bin/www

@@ -1,8 +1,0 @@
-FROM node
-RUN npm install nodemon -g
-RUN mkdir /src
-COPY . /src
-WORKDIR /src
-EXPOSE 4000
-RUN npm install
-ENTRYPOINT nodemon -L server.js
